@@ -5,6 +5,7 @@ export default function TranslatorApp() {
   const [mode, setMode] = React.useState("binaryToText");
   const [input, setInput] = React.useState("");
   const [output, setOutput] = React.useState("");
+};
 
   const natoMap = {
     alfa: "A",
@@ -86,21 +87,36 @@ export default function TranslatorApp() {
       .join(" ");
   };
 
-  const natoToText = (text) => {
-    return text
-      .toLowerCase()
-      .split(" ")
-      .map((word) => natoMap[word] || "")
-      .join("");
-  };
-
   const textToNato = (text) => {
-    return text
-      .toUpperCase()
-      .split("")
-      .map((char) => reverseNatoMap[char] || char)
-      .join(" ");
-  };
+  return text
+    .split("")
+    .map((char) => {
+      const upper = char.toUpperCase();
+
+      if (reverseNatoMap[upper]) {
+        return reverseNatoMap[upper];
+      }
+
+      return char;
+    })
+    .join(" ");
+};
+
+  const natoToText = (text) => {
+  const words = text.split(" ");
+  let result = "";
+
+  words.forEach((word) => {
+    const lower = word.toLowerCase();
+
+    if (natoMap[lower]) {
+      result += natoMap[lower];
+    } else if (word === "") {
+      result += " ";
+    } else {
+      result += word;
+    }
+  });
 
   const translate = () => {
     switch (mode) {
