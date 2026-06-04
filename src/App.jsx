@@ -55,20 +55,20 @@ export default function TranslatorApp() {
     }).join(" ");
   };
 
-  const natoToText = (text) => {
-    const parts = text.split(/(\s+|[.,!?;:()])/);
+    const natoToText = (text) => {
+    const words = text.trim().split(/\s+/);
     let result = "";
-    parts.forEach((part) => {
-      if (!part) return;
-      const cleanPart = part.trim().toLowerCase();
-      if (natoMap[cleanPart]) {
-        const letter = natoMap[cleanPart];
-        result += part[0] === part[0].toUpperCase() ? letter : letter.toLowerCase();
+    words.forEach((word) => {
+      if (!word) return;
+      const cleanWord = word.toLowerCase();
+      if (natoMap[cleanWord]) {
+        const letter = natoMap[cleanWord];
+        result += word[0] === word[0].toUpperCase() ? letter : letter.toLowerCase();
       } else {
-        result += part;
+        result += word;
       }
     });
-    return result.replace(/\s{2,}/g, ' ');
+    return result;
   };
 
   const textToAssembly = (text) => {
