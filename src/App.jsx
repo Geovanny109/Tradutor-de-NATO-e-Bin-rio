@@ -8,10 +8,19 @@ export default function TranslatorApp() {
   const [output, setOutput] = useState("");
   const [theme, setTheme] = useState("dark");
   const [activeTab, setActiveTab] = useState("binary");
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const savedTheme = localStorage.getItem("theme") || "dark";
-    setTheme(savedTheme);
+    const savedTheme = localStorage.getItem("theme");
+    if (savedTheme) {
+      setTheme(savedTheme);
+    } else {
+      const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      setTheme(prefersDark ? "dark" : "light");
+    }
+    
+    const timer = setTimeout(() => setLoading(false), 2000);
+    return () => clearTimeout(timer);
   }, []);
 
   const toggleTheme = () => {
@@ -117,6 +126,24 @@ export default function TranslatorApp() {
   };
 
   const isDark = theme === "dark";
+
+  if (loading) {
+    return (
+      <div className={`min-h-screen flex items-center justify-center transition-colors duration-500 ${isDark ? "bg-zinc-950" : "bg-zinc-50"}`}>
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.8 }} 
+          animate={{ opacity: 1, scale: 1 }} 
+          transition={{ duration: 0.5, repeat: Infinity, repeatType: "reverse" }}
+          className="flex flex-col items-center gap-6"
+        >
+          <img src={brainIcon} alt="Loading..." className="w-32 h-32 object-contain drop-shadow-[0_0_20px_rgba(37,99,235,0.5)]" />
+          <h1 className="text-2xl font-black tracking-tighter italic text-zinc-500">
+            CIPHER<span className="text-blue-600">PRO</span>
+          </h1>
+        </motion.div>
+      </div>
+    );
+  }
 
   return (
     <div className={`min-h-screen transition-colors duration-500 flex flex-col items-center p-4 md:p-8 ${isDark ? "bg-zinc-950 text-white" : "bg-zinc-50 text-zinc-900"}`}>
