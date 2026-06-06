@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import brainIcon from "./assets/brain_icon_final.png";
+import brainIcon from "./assets/brain_icon_exact.png";
 
 export default function TranslatorApp() {
   const [mode, setMode] = useState("binaryToText");
@@ -122,7 +122,7 @@ export default function TranslatorApp() {
     <div className={`min-h-screen transition-colors duration-500 flex flex-col items-center p-4 md:p-8 ${isDark ? "bg-zinc-950 text-white" : "bg-zinc-50 text-zinc-900"}`}>
       <header className="w-full max-w-4xl flex justify-between items-center mb-12">
         <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} className="flex items-center gap-3">
-          <img src={brainIcon} alt="CIPHERPRO Logo" className="w-10 h-10 object-contain" />
+          <img src={brainIcon} alt="CIPHERPRO Logo" className="w-16 h-16 md:w-20 md:h-20 object-contain drop-shadow-[0_0_12px_rgba(37,99,235,0.4)]" />
           <h1 className="text-3xl font-black tracking-tighter italic">CIPHER<span className="text-blue-600">PRO</span></h1>
         </motion.div>
         <button onClick={toggleTheme} className={`p-3 rounded-full transition-all ${isDark ? "bg-zinc-900 text-yellow-400 hover:bg-zinc-800" : "bg-white text-zinc-600 shadow-md hover:shadow-lg"}`}>
