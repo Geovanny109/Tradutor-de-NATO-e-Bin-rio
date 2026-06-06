@@ -1,15 +1,20 @@
 {
-  "name": "Tradutor Binário NATO",
-  "short_name": "Tradutor NATO",
+  "name": "CIPHERPRO - Tradutor Universal",
+  "short_name": "CIPHERPRO",
   "start_url": ".",
   "display": "standalone",
-  "background_color": "#000000",
-  "theme_color": "#000000",
+  "background_color": "#09090b",
+  "theme_color": "#2563eb",
   "icons": [
     {
-      "src": "/app-icon.svg",
+      "src": "/app-icon.png",
       "sizes": "512x512",
-      "type": "image/svg+xml"
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
     }
   ]
 }
