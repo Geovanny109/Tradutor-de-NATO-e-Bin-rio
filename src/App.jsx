@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import brainIcon from "./src/assets/brain_icon_exact.png";
+import brainIcon from "./assets/brain_icon_exact.png";
 
 export default function TranslatorApp() {
   const [mode, setMode] = useState("binaryToText");
