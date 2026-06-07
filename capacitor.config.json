@@ -1,5 +1,10 @@
 {
   "appId": "com.cipherpro",
   "appName": "CIPHERPRO",
-  "webDir": "dist"
+  "webDir": "dist",
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 0
+    }
+  }
 }
