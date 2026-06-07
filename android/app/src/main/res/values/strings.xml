@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">Tradutor Binario NATO</string>
-    <string name="title_activity_main">Tradutor Binario NATO</string>
-    <string name="package_name">com.tradutor.nato</string>
-    <string name="custom_url_scheme">com.tradutor.nato</string>
+    <string name="app_name">CIPHERPRO</string>
+    <string name="title_activity_main">CIPHERPRO</string>
+    <string name="package_name">com.CIPHERPRO</string>
+    <string name="custom_url_scheme">com.CIPHERPRO</string>
 </resources>

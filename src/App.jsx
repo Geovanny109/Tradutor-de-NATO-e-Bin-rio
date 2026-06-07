@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import brainIcon from "./assets/brain_icon_exact.png";
+import { SplashScreen } from '@capacitor/splash-screen';
 
 export default function TranslatorApp() {
   const [mode, setMode] = useState("binaryToText");
@@ -11,6 +12,8 @@ export default function TranslatorApp() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    SplashScreen.hide();
+    
     const savedTheme = localStorage.getItem("theme");
     if (savedTheme) {
       setTheme(savedTheme);
